@@ -1,0 +1,38 @@
+pragma solidity ^0.8.11;
+
+//sending ether to somebody
+//testnet - afford to make mistakes in testnet.
+
+contract valentineSpecial{
+    function message() external view{
+    uint x = 10;
+    }
+
+    function paySomeone() external payable{
+
+    }
+    //seeBalance - checks balance of contract
+    function seeBalance() external returns(uint){
+        return address(this).balance;
+    }
+
+    function checkBalance(address check) external returns(uint){
+        return check.balance;
+    }
+
+    function sendGift(address payable receiver) external payable{
+        receiver.transfer(1000);
+        //error handling
+        //require
+        //assert
+        //revert
+        //if balance of address is >5000 then send 1000 weis.
+        if(receiver.balance>5000){
+            receiver.transfer(1000);
+        }
+        //logic
+        //require(condition , error message)
+        require(receiver.balance > 5000 , "balance less than 5K");
+
+    }
+}
